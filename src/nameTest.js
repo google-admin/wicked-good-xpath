@@ -85,7 +85,7 @@ wgxpath.NameTest.HTML_NAMESPACE_URI_ = 'http://www.w3.org/1999/xhtml';
   *
   * @const
   * @type {string}
-  * @private
+  * @public
   */
  wgxpath.NameTest.WILDCARD = '*';
 
@@ -99,10 +99,9 @@ wgxpath.NameTest.prototype.matches = function(node) {
       type != goog.dom.NodeType.ATTRIBUTE) {
     return false;
   }
-  console.log("Name matches? '"+this.name_+"' - '"+node.nodeName.toLowerCase()+"'");
 
   // check if names dont match, if this is a wildcard then
-  if (this.name_ != wgxpath.NameTest.WILDCARD && this.name_ != node.nodeName.toLowerCase()) {
+  if (this.name_ != wgxpath.NameTest.WILDCARD && this.name_ != node.localName.toLowerCase()) {
     return false;
   } else {
     // wildcard namespace, it matches
