@@ -222,7 +222,7 @@ wgxpath.XPathNSResolver_ = function(node) {
 
 
 /**
- * Installs the library. This is a noop if native XPath is available or the 2nd parameter is true.
+ * Installs the library. This is a noop if native XPath is available and the 2nd parameter (force_install) is false/undefined.
  *
  * @param {Window=} opt_win The window to install the library on.
  * @param {boolean=} force_install Overwrites any existing method if evaluate on the document.
