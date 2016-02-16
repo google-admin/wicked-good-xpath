@@ -225,12 +225,12 @@ wgxpath.XPathNSResolver_ = function(node) {
  *
  * @param {Window=} opt_win The window to install the library on.
  */
-wgxpath.install = function(opt_win) {
+wgxpath.install = function(opt_win, force) {
   var win = opt_win || goog.global;
   var doc = win.document;
 
   // Installation is a noop if native XPath is available.
-  if (doc['evaluate']) {
+  if (doc['evaluate'] && !force) {
     return;
   }
 
