@@ -97,6 +97,7 @@ wgxpath.XPathExpression_ = function(expr, nsResolver) {
   if (!lexer.empty()) {
     throw Error('Bad token: ' + lexer.next());
   }
+  
   this['evaluate'] = function(node, type) {
     var value = gexpr.evaluate(new wgxpath.Context(node));
     return new wgxpath.XPathResult_(value, type);
@@ -221,16 +222,17 @@ wgxpath.XPathNSResolver_ = function(node) {
 
 
 /**
- * Installs the library. This is a noop if native XPath is available.
+ * Installs the library. This is a noop if native XPath is available and the 2nd parameter (force_install) is false/undefined.
  *
  * @param {Window=} opt_win The window to install the library on.
+ * @param {boolean=} force_install Overwrites any existing method if evaluate on the document.
  */
-wgxpath.install = function(opt_win) {
+wgxpath.install = function(opt_win, force_install) {
   var win = opt_win || goog.global;
   var doc = win.document;
 
-  // Installation is a noop if native XPath is available.
-  if (doc['evaluate']) {
+  // Installation is a noop if native XPath is available unless you want to force install
+  if (doc['evaluate'] && !force_install) {
     return;
   }
 
