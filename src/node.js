@@ -265,8 +265,8 @@ wgxpath.Node.getDescendantNodesGeneric_ = function(test, node,
   } else if (test instanceof wgxpath.KindTest) {
     wgxpath.Node.doRecursiveAttrMatch_(test, node, attrName,
         attrValue, nodeset);
-  } else if (node.getElementsByTagName) {
-    var nodes = node.getElementsByTagName(test.getName());
+  } else if (node.getElementsByTagNameNS) {
+    var nodes = node.getElementsByTagNameNS(test.getNamespaceUri(), test.getName());
     goog.array.forEach(nodes, function(node) {
       if (wgxpath.Node.attrMatches(node, attrName, attrValue)) {
         nodeset.add(node);
