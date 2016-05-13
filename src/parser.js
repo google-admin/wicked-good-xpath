@@ -271,7 +271,7 @@ wgxpath.Parser.prototype.parseNameTest_ = function() {
   } else {
     var namespacePrefix = name.substring(0, colonIndex);
     var namespaceUri;
-    if(namespacePrefix == wgxpath.NameTest.WILDCARD) {
+    if (namespacePrefix == wgxpath.NameTest.WILDCARD) {
       namespaceUri = wgxpath.NameTest.WILDCARD;
     } else {
       namespaceUri = this.nsResolver_(namespacePrefix);
