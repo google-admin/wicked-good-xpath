@@ -1,5 +1,6 @@
 {
   "name": "wicked-good-xpath",
+  "version": "1.3.0",
   "description": "Pure JS implementation of the DOM Level 3 XPath specification",
   "main": "dist/wgxpath.install.js",
   "authors": [
