@@ -268,7 +268,7 @@ wgxpath.Node.getDescendantNodesGeneric_ = function(test, node,
   } else if (node.getElementsByTagName) {
     var nodes = node.getElementsByTagName(test.getName());
     goog.array.forEach(nodes, function(node) {
-      if (wgxpath.Node.attrMatches(node, attrName, attrValue)) {
+      if (test.matches(node) && wgxpath.Node.attrMatches(node, attrName, attrValue)) {
         nodeset.add(node);
       }
     });
