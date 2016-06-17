@@ -320,7 +320,7 @@ wgxpath.Node.getChildNodesIEPre9_ = function(test, node,
     if (name != '*') {
       //children = children.tags(name); // children.tags seems buggy.
       children = goog.array.filter(children, function(child) {
-        return child.tagName && child.tagName.toLowerCase() == name;
+        return child.tagName && child.tagName == name;
       });
       if (!children) {
         return nodeset;
