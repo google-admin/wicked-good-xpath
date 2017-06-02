@@ -52,7 +52,7 @@ wgxpath.NameTest = function(name, opt_namespaceUri) {
    * @type {string}
    * @private
    */
-  this.name_ = name.toLowerCase();
+  this.name_ = name;
 
   var defaultNamespace;
   if (this.name_ == wgxpath.NameTest.WILDCARD) {
@@ -103,7 +103,7 @@ wgxpath.NameTest.prototype.matches = function(node) {
   // TODO(moz): Investigate if node.localName is necessary.
   var localName = goog.isDef(node.localName) ? node.localName : node.nodeName;
   if (this.name_ != wgxpath.NameTest.WILDCARD &&
-      this.name_ != localName.toLowerCase()) {
+      this.name_ != localName) {
     return false;
   } else {
     if (this.namespaceUri_ == wgxpath.NameTest.WILDCARD) {

@@ -268,7 +268,7 @@ wgxpath.Node.getDescendantNodesGeneric_ = function(test, node,
   } else if (node.getElementsByTagName) {
     var nodes = node.getElementsByTagName(test.getName());
     goog.array.forEach(nodes, function(node) {
-      if (wgxpath.Node.attrMatches(node, attrName, attrValue)) {
+      if (test.matches(node) && wgxpath.Node.attrMatches(node, attrName, attrValue)) {
         nodeset.add(node);
       }
     });
@@ -320,7 +320,7 @@ wgxpath.Node.getChildNodesIEPre9_ = function(test, node,
     if (name != '*') {
       //children = children.tags(name); // children.tags seems buggy.
       children = goog.array.filter(children, function(child) {
-        return child.tagName && child.tagName.toLowerCase() == name;
+        return child.tagName && child.tagName == name;
       });
       if (!children) {
         return nodeset;
