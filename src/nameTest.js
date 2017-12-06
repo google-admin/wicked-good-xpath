@@ -52,7 +52,7 @@ wgxpath.NameTest = function(name, opt_namespaceUri) {
    * @type {string}
    * @private
    */
-  this.name_ = name.toLowerCase();
+  this.name_ = name;
 
   var defaultNamespace;
   if (this.name_ == wgxpath.NameTest.WILDCARD) {
@@ -69,6 +69,9 @@ wgxpath.NameTest = function(name, opt_namespaceUri) {
   this.namespaceUri_ = opt_namespaceUri ? opt_namespaceUri.toLowerCase() :
       defaultNamespace;
 
+  if (this.namespaceUri_ == wgxpath.NameTest.HTML_NAMESPACE_URI_) {
+    this.name_ = this.name_.toLowerCase();
+  }
 };
 
 
