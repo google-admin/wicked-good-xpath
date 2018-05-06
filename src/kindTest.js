@@ -100,7 +100,8 @@ wgxpath.KindTest.isValidType = function(typeName) {
  * @override
  */
 wgxpath.KindTest.prototype.matches = function(node) {
-  return goog.isNull(this.type_) || this.type_ == node.nodeType;
+  var efftype = node.nodeType == goog.dom.NodeType.CDATA_SECTION ? goog.dom.NodeType.TEXT : node.nodeType;
+  return goog.isNull(this.type_) || this.type_ == efftype;
 };
 
 
